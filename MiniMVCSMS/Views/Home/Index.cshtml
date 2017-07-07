@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script type="text/javascript">
+        function blockSpecialChar(e) {
+            var k = e.keyCode;
+            return ((k > 64 && k < 91) || (k > 96 && k < 123)|| (k >= 48 && k <= 57));
+        }
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <h2>Mini Project for SMS Module</h2>
+
+        <form name="smsform" method="post" enctype="multipart/form-data">
+            <div>
+                <input name="file" type="file" required />
+            </div>
+            <br />
+            <div>
+                <textarea name="txtbox" rows="6" cols="30" maxlength="160" data-limit-input="160" onkeypress="return blockSpecialChar(event)"> </textarea><br>
+                @*<span>0 of 160 characters used</span>
+                    <script>
+                        // tell the embed parent frame the height of the content
+                      if (window.parent && window.parent.parent){
+                        window.parent.parent.postMessage(["resultsFrame", {height: document.body.getBoundingClientRect().height,slug: "7Zvhq"}], "*")
+                      }
+                    </script>*@
+            </div>
+            <br />
+            <div>
+            </div>
+            <button type="submit" onclick="return confirm('Would you like to save this record?')">Save</button>
+            <input type="reset" value="Clear" />
+            <p>@ViewBag.result<p />
+        </form>
+    </div>
+</body>
+</html>
